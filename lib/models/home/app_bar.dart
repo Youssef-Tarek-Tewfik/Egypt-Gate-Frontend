@@ -1,13 +1,15 @@
 import 'package:egypt_gate/common/theme.dart';
 import 'package:flutter/material.dart';
 
+// Function that returns an Appbar instance properly customized
+// Receives the screen full height and width as parameters
 AppBar customAppBar({double h, double w}) {
   return AppBar(
     backgroundColor: CustomColors.secondary,
     toolbarHeight: h * 0.1,
     centerTitle: true,
     iconTheme: IconThemeData(color: CustomColors.primary),
-    bottom: PreferredSize(
+    bottom: PreferredSize( // The yellow line at the bottom of the app bar
       child: Container(
         color: CustomColors.primary,
         height: h * 0.002,       
@@ -19,7 +21,11 @@ AppBar customAppBar({double h, double w}) {
       style: TextStyle(
         color: CustomColors.primary,
         fontSize: w * 0.07,
+        fontWeight: FontWeight.w900,
       ),
     ),
+    actions: [
+      Image.asset("assets/logo.png", width: w * 0.15),
+    ],
   );
 }
