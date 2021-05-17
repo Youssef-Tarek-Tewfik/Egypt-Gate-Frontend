@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
 
     Timer(
       Duration(seconds: 5), // just waits 5 seconds, like Timeout in JS
-      () => Navigator.of(context).pushReplacement(HomeScreenRoute(camera, true)), // !
+      () => Navigator.of(context).pushReplacement(HomeScreenRoute(camera, connected)), // !
     );
   }
 
