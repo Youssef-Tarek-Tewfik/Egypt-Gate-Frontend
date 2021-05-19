@@ -12,7 +12,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:async/async.dart';
 import 'package:path/path.dart';
 
-String apiLink = 'http://7c5a62bb81be.ngrok.io/';
+String apiLink = 'http://660669f4cc2a.ngrok.io/';
 
 Future<String> scanImage(File imageFile) async {
   var request = http.MultipartRequest(
@@ -36,7 +36,7 @@ Future<String> scanImage(File imageFile) async {
   var streamedResponse = await request.send();
   var response = await http.Response.fromStream(streamedResponse);
 
-  return response.body;
+  return response.body.split('#')[0];
   //print(response.body.length);
   // setState(() {
   //  image = File(response.body);

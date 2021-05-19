@@ -2,26 +2,34 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:egypt_gate/common/theme.dart';
+import 'package:egypt_gate/screens/scanning_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
-import '../../backend/scanningApi.dart';
+
 
 // Function called to capture a picture with the camera
 // TO DO: Function should delegate the image to another api caller function
 void captureHandler(
-    Future<void> initializer, CameraController controller) async {
+  Future<void> initializer, CameraController controller , BuildContext context) async {
+    
+  //https://www.youtube.com/watch?v=nLlVANBmFJM
+  //Hena Loading Screen le7ad ma el await te5las
   await initializer;
   final temp = await getTemporaryDirectory();
   final temp2 = temp.path + "Image.jpg";
   if (await File(temp2).exists()) {
     File(temp2).delete();
   }
-  await controller.takePicture(temp2);
-  File image = new File(temp2);
-  print(image.path);
-  String x = await scanImage(image);
-  print(x);
+  await controller.takePicture(temp2).whenComplete(()=>{
+  Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ScanningScreen(imageToScanPath: temp2),
+          ),
+        )
+  });
 }
 
 // Function that builds the camera preview and button widgets when the initializer is done
@@ -59,7 +67,7 @@ FutureBuilder<void> cameraBuilder(
                     ),
                     child: RaisedButton(
                       onPressed: buttonEnabled
-                          ? () => captureHandler(initializer, controller)
+                          ? () => captureHandler(initializer, controller, context)
                           : null,
                       color: Colors.transparent,
                       shape: CircleBorder(),
