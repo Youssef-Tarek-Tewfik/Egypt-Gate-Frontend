@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:egypt_gate/screens/AR_screen.dart';
 import '../backend/scanningApi.dart';
 
 class ScanningScreen extends StatefulWidget {
@@ -21,20 +22,36 @@ class _ScanningScreenState extends State<ScanningScreen> {
       future: scanImage(widget.image),
       builder: (context, AsyncSnapshot<String> text) {
         if (text.hasData) {
-          print("AAAAAAAAAA  "+text.data);
-          /*Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ScanningScreen(imageToScanPath: temp2),
-          ),
-        );*/
-          return Text(text.data); // image is ready
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ArScreen(kingName: text.data),
+              ));
+          return Stack(children: <Widget>[
+            Image.asset(
+              "assets/resources/pattern6.png",
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+            Scaffold(
+                body: Center(
+                    child:
+                        SpinKitRotatingCircle(color: Colors.white, size: 50.0)))
+          ]); // image is ready
         } else {
-          return new Scaffold(
-              backgroundColor: Colors.blue[900],
-              body: Center(
-                  child: SpinKitRotatingCircle(
-                      color: Colors.white, size: 50.0))); // placeholder
+          return Stack(children: <Widget>[
+            Image.asset(
+              "assets/resources/background.png",
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.cover,
+            ),
+            Scaffold(
+                body: Center(
+                    child:
+                        SpinKitRotatingCircle(color: Colors.white, size: 50.0)))
+          ]); // placeholder
         }
       },
     );
