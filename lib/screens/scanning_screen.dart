@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:path/path.dart';
 import '../backend/scanningApi.dart';
 
 class ScanningScreen extends StatefulWidget {
@@ -21,20 +24,43 @@ class _ScanningScreenState extends State<ScanningScreen> {
       future: scanImage(widget.image),
       builder: (context, AsyncSnapshot<String> text) {
         if (text.hasData) {
-          print("AAAAAAAAAA  "+text.data);
+          print("AAAAAAAAAA  " + text.data);
+          String organizedText = "";
+          Map<String, String> kingData = {
+            'name': "",
+            'family': "",
+            'role': "",
+            'short-description': ""
+          };
+          for (String text in text.data.split('!')) {
+            if (text.isNotEmpty) {
+              print("SSSSSS" + text);
+              kingData[text.split('^')[0]] = text.split('^')[1];
+            }
+          }
+          organizedText += ('\n\n');
+          organizedText += (("Name : ") + kingData['name'] + '\n\n');
+          organizedText += (("Family : ") + kingData['family'] + '\n\n');
+          organizedText += (("Role : ") + kingData['role'] + '\n\n');
+          /*organizedText +=
+              (("Description : ") + kingData['short-description'] + '\n');*/
           /*Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => ScanningScreen(imageToScanPath: temp2),
           ),
         );*/
-          return Text(text.data); // image is ready
+          return Text(
+            organizedText,
+            textAlign: TextAlign.center,
+            textScaleFactor: 1,
+          ); // image is ready
         } else {
           return new Scaffold(
-              backgroundColor: Colors.blue[900],
+              backgroundColor: Colors.yellowAccent[700],
               body: Center(
-                  child: SpinKitRotatingCircle(
-                      color: Colors.white, size: 50.0))); // placeholder
+                  child: SpinKitPouringHourglass(
+                      color: Colors.black, size: 50.0))); // placeholder
         }
       },
     );

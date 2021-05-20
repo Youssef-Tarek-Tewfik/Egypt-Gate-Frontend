@@ -12,7 +12,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:async/async.dart';
 import 'package:path/path.dart';
 
-String apiLink = 'http://660669f4cc2a.ngrok.io/';
+String apiLink = 'http://bfc8968861a4.ngrok.io/';
 
 Future<String> scanImage(File imageFile) async {
   var request = http.MultipartRequest(
