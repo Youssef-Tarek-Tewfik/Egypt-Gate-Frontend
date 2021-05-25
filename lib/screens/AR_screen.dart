@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_unity/flutter_unity.dart';
 
 class ArScreen extends StatelessWidget {
-  String kingName;
+  Map<String,String> kingData;
 
-  ArScreen({Key key, @required this.kingName}) : super(key: key);
+  ArScreen({Key key, @required this.kingData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Unity Scene',
-      home: MyHomePage(kingName: this.kingName),
+      home: MyHomePage(kingData: this.kingData),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -19,8 +19,8 @@ class ArScreen extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  String kingName;
-  MyHomePage({Key key, @required this.kingName}) : super(key: key);
+  Map<String,String> kingData;
+  MyHomePage({Key key, @required this.kingData}) : super(key: key);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -37,9 +37,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     unityViewController.send(
-      'First_Text',
-      'SetNewTex',
-      super.widget.kingName
+      'Role',
+      'SetNewText',
+      super.widget.kingData['role']
+    );
+    unityViewController.send(
+      'KingName',
+      'SetNewText',
+      super.widget.kingData['name']
+    );
+    unityViewController.send(
+      'Family',
+      'SetNewText',
+      super.widget.kingData['family']
+    );
+    unityViewController.send(
+      'ShortDescription',
+      'SetNewText',
+      //super.widget.kingData['short-description']
+      'Description Here'
     );
   }
 

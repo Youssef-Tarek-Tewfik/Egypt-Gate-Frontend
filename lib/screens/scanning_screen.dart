@@ -16,42 +16,70 @@ class ScanningScreen extends StatefulWidget {
 }
 
 class _ScanningScreenState extends State<ScanningScreen> {
+  void goToAR(kingData) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ArScreen(kingData: kingData),
+        ));
+  }
+
   Widget build(BuildContext context) {
     widget.image = new File(widget.imageToScanPath);
     return new FutureBuilder(
       future: scanImage(widget.image),
       builder: (context, AsyncSnapshot<String> text) {
         if (text.hasData) {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ArScreen(kingName: text.data),
-              ));
-          return Stack(children: <Widget>[
-            Image.asset(
-              "assets/resources/pattern6.png",
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
+          print("AAAAAAAAAA  " + text.data);
+          String organizedText = "";
+          Map<String, String> kingData = {
+            'name': "",
+            'family': "",
+            'role': "",
+            'short-description': ""
+          };
+          for (String text in text.data.split('!')) {
+            if (text.isNotEmpty) {
+              if (text.split('^')[0] == "short-description") {
+                String temp = "";
+
+                for (String line in text.split('^')[1].split('.')) {
+                  temp += (line + '\n');
+                }
+                kingData[text.split('^')[0]] = temp;
+              } else {
+                print("SSSSSS" + text);
+                kingData[text.split('^')[0]] = text.split('^')[1];
+              }
+            }
+          }
+          organizedText += ('\n\n\n\n\n\n\n\n\n\n');
+          organizedText += (("Name : ") + kingData['name'] + '\n\n');
+          organizedText += (("Family : ") + kingData['family'] + '\n\n');
+          organizedText += (("Role : ") + kingData['role'] + '\n\n');
+          organizedText += ('\n\n');
+          organizedText += "Press the below button to go to the AR mode ";
+          /*organizedText +=
+              (("Description : ") + kingData['short-description'] + '\n');*/
+          return Scaffold(
+            body: Text(
+              organizedText,
+              textScaleFactor: 2,
             ),
-            Scaffold(
-                body: Center(
-                    child:
-                        SpinKitRotatingCircle(color: Colors.white, size: 50.0)))
-          ]); // image is ready
-        } else {
-          return Stack(children: <Widget>[
-            Image.asset(
-              "assets/resources/background.png",
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              fit: BoxFit.cover,
+            floatingActionButton: FloatingActionButton(
+              onPressed: () => goToAR(kingData),
+              child: Icon(Icons.arrow_right),
             ),
-            Scaffold(
-                body: Center(
-                    child:
-                        SpinKitRotatingCircle(color: Colors.white, size: 50.0)))
-          ]); // placeholder
+          ); // image is ready
+        }
+        // image is ready
+        else {
+          return Scaffold(
+              backgroundColor: Colors.yellowAccent[700],
+              body: Center(
+                  child: SpinKitPouringHourglass(
+                      color: Colors.black, size: 50.0)));
+          // placeholder
         }
       },
     );
