@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:egypt_gate/splash_screen.dart';
 
+import 'offline_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -12,17 +14,19 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
-      initialRoute: "/",
-      routes: {
-        "/": (context) => SplashScreen(context),
-        "/home": (context) => HomeScreen(),
-      },
-    );
+
+      return offlineScreen();
+  //   return CupertinoApp(
+  //     title: 'Flutter Demo',
+  //     // theme: ThemeData(
+  //     //   primarySwatch: Colors.blue,
+  //     //   visualDensity: VisualDensity.adaptivePlatformDensity,
+  //     // ),
+  //     initialRoute: "/",
+  //     routes: {
+  //       "/": (context) => SplashScreen(context),
+  //       "/home": (context) => HomeScreen(),
+  //     },
+  //   );
   }
 }
