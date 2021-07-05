@@ -56,8 +56,30 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/
-
+    - assets/images/Akhenaten.jpg
+    - assets/images/Nefertiti.jpg
+    - assets/images/Ramesses II.jpg
+    - assets/images/Thutmose III.jpg
+    - assets/images/Tutankhamun.jpg
+    - assets/descriptions/Akhenaten.txt
+    - assets/descriptions/Nefertiti.txt
+    - assets/descriptions/Ramesses II.txt
+    - assets/descriptions/Thutmose III.txt
+    - assets/descriptions/Tutankhamun.txt
+    - assets/descriptions/names.txt
+    - assets/images/pattern6.jpg
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/CinzelDecorative-Regular.otf
+        - asset: assets/fonts/CinzelDecorative-Bold.otf
+          weight: 700
+    - family: WeissInitialen
+      fonts:
+        - asset: assets/fonts/WeissInitialen.ttf
+    - family: Lato Light
+      fonts:
+        - asset: assets/fonts/lato.light.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

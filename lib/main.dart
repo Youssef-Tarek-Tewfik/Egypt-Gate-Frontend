@@ -1,4 +1,5 @@
 import 'package:egypt_gate/common/theme.dart';
+import 'package:egypt_gate/offline_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:egypt_gate/screens/splash_screen.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Egypt Gate',
       theme: customThemeData(),
-      home: SplashScreen(),
+      home: offlineScreen(),
     );
   }
 }
