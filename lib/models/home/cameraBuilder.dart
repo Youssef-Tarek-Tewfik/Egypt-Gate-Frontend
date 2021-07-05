@@ -22,7 +22,7 @@ void captureHandler(
   if (await File(temp2).exists()) {
     File(temp2).delete();
   }
-  await controller.takePicture(temp2).whenComplete(()=>{
+  await controller.takePicture().whenComplete(()=>{
   Navigator.push(
           context,
           MaterialPageRoute(
@@ -34,12 +34,12 @@ void captureHandler(
 
 // Function that builds the camera preview and button widgets when the initializer is done
 // Also handles what to be displayed while the initializer isn't finished
-FutureBuilder<void> cameraBuilder(
-    {Future<void> initializer,
-    CameraController controller,
-    double w,
-    double h,
-    bool buttonEnabled}) {
+FutureBuilder<void> cameraBuilder({
+  final Future<void> initializer,
+  final CameraController controller,
+  final double w,
+  final double h,
+  final bool buttonEnabled = true}) {
   return FutureBuilder<void>(
       future: initializer,
       builder: (context, snapshot) {
@@ -51,7 +51,11 @@ FutureBuilder<void> cameraBuilder(
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
-                  CameraPreview(controller),
+                  Container(
+                    width: w,
+                    height: h,
+                    child: CameraPreview(controller)
+                  ),
                   Container(
                     height: 0.15 * h,
                     width: 0.255 * w,
@@ -87,7 +91,8 @@ FutureBuilder<void> cameraBuilder(
                     ),
                   ),
                 ],
-              ));
+              )
+          );
         } else {
           // initialization not done yet
           return Center(child: CircularProgressIndicator());

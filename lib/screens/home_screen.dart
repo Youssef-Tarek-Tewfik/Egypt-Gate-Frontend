@@ -10,10 +10,10 @@ import 'package:flutter/material.dart';
 // Receives the CameraDescription instance from the Splashscreen
 class HomeScreen extends StatefulWidget {
 
-  final CameraDescription camera;
+  final CameraDescription cameraDescription;
   final bool connected;
 
-  HomeScreen(this.camera, this.connected);
+  HomeScreen(this.cameraDescription, this.connected);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -27,8 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    
     _controller = CameraController(
-      widget.camera,
+      widget.cameraDescription,
       ResolutionPreset.medium,
     );
   _initializeControllerFuture = _controller.initialize();
@@ -59,6 +60,19 @@ class _HomeScreenState extends State<HomeScreen> {
         h: h,
         buttonEnabled: widget.connected,
       ),
+      // body: FutureBuilder<void>(
+      //   future: _initializeControllerFuture,
+      //   builder: (context, snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.done) {
+      //       // If the Future is complete, display the preview.
+      //       return CameraPreview(_controller);
+      //     } else {
+      //       // Otherwise, display a loading indicator.
+      //       return const Center(child: CircularProgressIndicator());
+      //     }
+      //   },
+      // ),
+
     );
   }
 }

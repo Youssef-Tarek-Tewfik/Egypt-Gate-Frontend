@@ -1,3 +1,7 @@
 1479 - 1425 BC
 18th Dynasty of Egypt
+<<<<<<< HEAD
 Thutmose's two main names transliterate as mn-?pr-r? ??wty-ms. They are normally realised as Menkheperra Djehutymes, meaning "Eternal are the manifestations of Ra, Born of Thoth". While modern Egyptological pronunciation renders his name as Djehutymes, at the time of his reign his name was probably pronounced as Tahati'missaw.
+=======
+
+>>>>>>> a7e1ef7... camera fixedd

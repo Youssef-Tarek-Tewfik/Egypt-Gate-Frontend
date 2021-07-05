@@ -1,3 +1,7 @@
 1332 - 1323 BC
+<<<<<<< HEAD
 18th Dynasty of Egypt
 Tutankhamun took the throne at eight or nine years of age under the unprecedented viziership of his eventual successor, ay, to whom he may have been related. He married his half sister ankhesenamun. During their marriage they lost two daughters, one at 56 months of pregnancy and the other shortly after birth at full-term. His namestutankhaten and tutankhamunare thought to mean "living image of aten" and "living image of amun", with aten replaced by amun after akhenaten's death. A small number of egyptologists, including battiscombe gunn, believe the translation may be incorrect and closer to "the-life-of-aten-is-pleasing" or, as professor gerhard fecht believes, reads as "one-perfect-of-life-is-aten".
+=======
+18th Dynasty of Egypt
+>>>>>>> a7e1ef7... camera fixedd
