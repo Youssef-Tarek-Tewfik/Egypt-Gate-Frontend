@@ -1,11 +1,8 @@
 import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:egypt_gate/common/theme.dart';
 import 'package:egypt_gate/screens/scanning_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
 
@@ -22,13 +19,13 @@ void captureHandler(
   if (await File(temp2).exists()) {
     File(temp2).delete();
   }
-  await controller.takePicture().whenComplete(()=>{
+  await controller.takePicture().whenComplete(() => {
   Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ScanningScreen(imageToScanPath: temp2),
-          ),
-        )
+      context,
+      MaterialPageRoute(
+        builder: (context) => ScanningScreen(imageToScanPath: temp2),
+      ),
+    )
   });
 }
 
@@ -94,8 +91,10 @@ FutureBuilder<void> cameraBuilder({
               )
           );
         } else {
-          // initialization not done yet
-          return Center(child: CircularProgressIndicator());
+          // initialization not done yet (Still loading)
+          return Center(child: CircularProgressIndicator(
+            color: CustomColors.primary
+          ));
         }
       });
 }

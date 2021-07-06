@@ -22,7 +22,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  void _homeCaller(BuildContext context) {
+  void _homeCaller(BuildContext context) async {
 
     // WidgetsFlutterBinding.ensureInitialized();
     // final cameras = await availableCameras();
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(
       Duration(seconds: 5), // just waits 5 seconds, like Timeout in JS
-      () => Navigator.of(context).pushReplacement(HomeScreenRoute(widget.camera, true)), // !
+      () async => await Navigator.of(context).pushReplacement(HomeScreenRoute(widget.camera, true)), // !
     );
   }
 

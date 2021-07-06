@@ -1,14 +1,6 @@
 Thutmose III
-<<<<<<< HEAD
 Nefertiti
 Akhenaten
 Ramesses II
 Tutankhamun
 ENDENDEND
-=======
-Tutankhamun
-Nefertiti
-Akhnaten
-Ramesses II
-Thutmose III
->>>>>>> a7e1ef7... camera fixedd

@@ -1,50 +1,55 @@
 import 'package:egypt_gate/screens/king_screen.dart';
 import 'package:flutter/material.dart';
 
-class Kings_Card extends StatefulWidget {
-  String kingName = "";
-  String reignPeriod = "";
-  String dynasty = "";
-  String history = "";
 
-  Kings_Card(
-      {@required this.kingName,
-      @required this.reignPeriod,
-      @required this.dynasty,
-      this.history});
+class KingCard extends StatefulWidget {
+  final String kingName;
+  final String reignPeriod;
+  final String dynasty;
+  final String history;
+
+  const KingCard({
+    this.kingName,
+    this.reignPeriod,
+    this.dynasty,
+    this.history
+  });
 
   @override
-  _Kings_CardState createState() => _Kings_CardState();
+  _KingCardState createState() => _KingCardState();
 }
 
-class _Kings_CardState extends State<Kings_Card> {
-  // void makeChange(){
-  //   setState(() {
-  //     widget.kingName = "Hello";
-  //   });
-  // }
+class _KingCardState extends State<KingCard> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void tapHandler(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => KingScreen(
+          kingName: widget.kingName,
+          reignPeriod: widget.reignPeriod,
+          dynasty: widget.dynasty,
+          history: widget.history,
+        )
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    widget.kingName = widget.kingName.substring(0, widget.kingName.length - 1);
 
     final double w = MediaQuery.of(context).size.width;
     final double h = MediaQuery.of(context).size.height;
 
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => king_info(
-                      kingName: widget.kingName,
-                      reignPeriod: widget.reignPeriod,
-                      dynasty: widget.dynasty,
-                      history: widget.history,
-                    )));
-      },
+      onTap: () => tapHandler(context),
       child: Material(
-        // color: Color.fromARGB(90, 255, 253, 201),
-        color: Colors.black,
+        color: Colors.white,
         child: Container(
           margin: EdgeInsets.all(3.5),
           decoration: BoxDecoration(
@@ -56,7 +61,6 @@ class _Kings_CardState extends State<Kings_Card> {
                 fit: BoxFit.cover),
           ),
           height: 200,
-          // color: Colors.white,
           child: Row(
             children: [
               Container(
@@ -65,7 +69,6 @@ class _Kings_CardState extends State<Kings_Card> {
                   borderRadius: BorderRadius.circular(10),
                   child: Image.asset(
                     "assets/images/${widget.kingName}.jpg",
-                    // "assets/images/Thutmose III.jpg",
                     fit: BoxFit.fitHeight,
                     height: 200,
                     width: 165,

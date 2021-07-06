@@ -46,33 +46,35 @@ class _HomeScreenState extends State<HomeScreen> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      backgroundColor: CustomColors.secondary,
-      appBar: customAppBar(
-        h: h,
-        w: w,
-      ),
-      drawer: customDrawer(),
-      body: cameraBuilder(
-        initializer: _initializeControllerFuture,
-        controller: _controller,
-        w: w,
-        h: h,
-        buttonEnabled: widget.connected,
-      ),
-      // body: FutureBuilder<void>(
-      //   future: _initializeControllerFuture,
-      //   builder: (context, snapshot) {
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       // If the Future is complete, display the preview.
-      //       return CameraPreview(_controller);
-      //     } else {
-      //       // Otherwise, display a loading indicator.
-      //       return const Center(child: CircularProgressIndicator());
-      //     }
-      //   },
-      // ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: CustomColors.secondary,
+        appBar: customAppBar(
+          h: h,
+          w: w,
+        ),
+        drawer: customDrawer(),
+        body: cameraBuilder(
+          initializer: _initializeControllerFuture,
+          controller: _controller,
+          w: w,
+          h: h,
+          buttonEnabled: widget.connected,
+        ),
+        // body: FutureBuilder<void>(
+        //   future: _initializeControllerFuture,
+        //   builder: (context, snapshot) {
+        //     if (snapshot.connectionState == ConnectionState.done) {
+        //       // If the Future is complete, display the preview.
+        //       return CameraPreview(_controller);
+        //     } else {
+        //       // Otherwise, display a loading indicator.
+        //       return const Center(child: CircularProgressIndicator());
+        //     }
+        //   },
+        // ),
 
+      ),
     );
   }
 }

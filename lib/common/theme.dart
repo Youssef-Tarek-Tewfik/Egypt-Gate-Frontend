@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomColors {
-  static Color primary = Colors.yellow.shade300;
+  static const Color primary = Color(0xFFEFD79B);
   static const Color secondary = Colors.black;
-  static const Color third = Colors.black;
+  static Color third = Colors.yellow.shade300;
+  static const Color fourth = Color.fromRGBO(56, 37, 14, 20);
 }
 
 ThemeData customThemeData() {

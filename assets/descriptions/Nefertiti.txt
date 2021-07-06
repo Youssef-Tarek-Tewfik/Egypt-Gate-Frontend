@@ -1,7 +1,3 @@
 1353 - 1336 BC
-<<<<<<< HEAD
 18th Dynasty of Egypt
 Neferneferuaten nefertiti (/nfrtiti/[3]) (c. 1370  c. 1330 bc) was a queen of the 18th dynasty of ancient egypt, the great royal wife of pharaoh akhenaten. Nefertiti and her husband were known for a religious revolution, in which they worshipped one god only, aten, or the sun disc. With her husband, she reigned at what was arguably the wealthiest period of ancient egyptian history. Some scholars believe that nefertiti ruled briefly as neferneferuaten after her husband's death and before the ascension of tutankhamun, although this identification is a matter of ongoing debate. If nefertiti did rule as pharaoh, her reign was marked by the fall of amarna and relocation of the capital back to the traditional city of thebes.
-=======
-18th Dynasty of Egypt
->>>>>>> a7e1ef7... camera fixedd
