@@ -9,18 +9,26 @@ class HomeScreenRoute extends MaterialPageRoute {
     builder: (context) => HomeScreen(camera, connected),
   );
 
+  // final CameraDescription camera;
+  // final bool connected;
+
+  // HomeScreenRoute(this.camera, this.connected);
+
   // @override
   // Widget buildPage(BuildContext context, var animation, var secondaryAnimation) {
     
-
-  //   return SizeTransition(
-  //     sizeFactor: Tween<double>(
-  //       begin: 0,
-  //       end: 0.1,
-  //     ).animate(animation),
-  //     child: HomeScreen(),
+  //   final double w = MediaQuery.of(context).size.width;
+  //   final double h = MediaQuery.of(context).size.height;
+    
+  //   return FadeTransition(
+  //     opacity: animation,
+  //     child: HomeScreen(camera, connected),
   //   );
   // }
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> primary, Animation<double> secondary, Widget child) {
+    return FadeTransition(opacity: primary, child: child);
+  }
 }
 
 /**

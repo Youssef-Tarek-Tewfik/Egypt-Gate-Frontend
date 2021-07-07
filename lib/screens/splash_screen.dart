@@ -3,6 +3,7 @@ import 'package:camera/camera.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:egypt_gate/common/theme.dart';
 import 'package:egypt_gate/models/home/home_route.dart';
+import 'package:egypt_gate/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 
@@ -40,6 +41,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
     Timer(
       Duration(seconds: 5), // just waits 5 seconds, like Timeout in JS
+      // () => Navigator.pushReplacement(
+      //   context,
+      //   PageRouteBuilder(
+      //     pageBuilder: (c, a1, a2) => HomeScreen(widget.camera, true),
+      //     transitionsBuilder: (c, anim, a2, child) => RotationTransition(turns: anim, child: child),
+      //     transitionDuration: Duration(milliseconds: 3000),
+      //   ),
+      // ),
       () async => await Navigator.of(context).pushReplacement(HomeScreenRoute(widget.camera, true)), // !
     );
   }

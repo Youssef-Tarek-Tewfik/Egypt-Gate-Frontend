@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'package:egypt_gate/common/custom_loading_screen.dart';
 import 'package:egypt_gate/common/theme.dart';
 import 'package:egypt_gate/screens/scanning_screen.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ FutureBuilder<void> cameraBuilder(
   return FutureBuilder<void>(
       future: initializer,
       builder: (context, snapshot) {
+        // if (false) {
         if (snapshot.connectionState == ConnectionState.done) {
           // initialization done
           return Container(

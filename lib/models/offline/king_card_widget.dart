@@ -1,3 +1,4 @@
+import 'package:egypt_gate/common/custom_navigation.dart';
 import 'package:egypt_gate/screens/king_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +30,14 @@ class _KingCardState extends State<KingCard> {
   void tapHandler(BuildContext context) {
     Navigator.push(
       context,
+      // customNavigation(
+      //   KingScreen(
+      //     kingName: widget.kingName,
+      //     reignPeriod: widget.reignPeriod,
+      //     dynasty: widget.dynasty,
+      //     history: widget.history,
+      //   )
+      // )
       MaterialPageRoute(
         builder: (context) => KingScreen(
           kingName: widget.kingName,
@@ -53,12 +62,12 @@ class _KingCardState extends State<KingCard> {
         child: Container(
           margin: EdgeInsets.all(3.5),
           decoration: BoxDecoration(
-            border:
-                Border.all(color: Color.fromRGBO(56, 37, 14, 20), width: 1.4),
+            border: Border.all(color: Color.fromRGBO(56, 37, 14, 20), width: 1.4),
             borderRadius: BorderRadius.circular(15.0),
             image: DecorationImage(
-                image: AssetImage("assets/images/pattern6.jpg"),
-                fit: BoxFit.cover),
+              image: AssetImage("assets/images/pattern6.jpg"),
+              fit: BoxFit.cover
+            ),
           ),
           height: 200,
           child: Row(
@@ -67,12 +76,12 @@ class _KingCardState extends State<KingCard> {
                 margin: new EdgeInsets.all(5.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    "assets/images/${widget.kingName}.jpg",
-                    fit: BoxFit.fitHeight,
-                    height: 200,
-                    width: 165,
-                  ),
+                    child: Image.asset(
+                      "assets/images/${widget.kingName}.jpg",
+                      fit: BoxFit.fitHeight,
+                      height: 200,
+                      width: 165,
+                    ),
                 ),
               ),
               Container(

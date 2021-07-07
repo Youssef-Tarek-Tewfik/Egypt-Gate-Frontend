@@ -42,12 +42,17 @@ class _OfflineScreenState extends State<OfflineScreen> {
   List<Widget> _getCards() {
     List<Widget> cards = [];
     for (int i = 0; i < _names.length - 1; i++) {
-      cards.add(KingCard(
-        kingName: _names[i].trimRight(),
-        reignPeriod: _reigningPeriods[i],
-        dynasty: _dynasties[i],
-        history: _histories[i],
-      ));
+      cards.add(
+        Hero(
+          tag: _names[i].trimRight(),
+          child: KingCard(
+            kingName: _names[i].trimRight(),
+            reignPeriod: _reigningPeriods[i],
+            dynasty: _dynasties[i],
+            history: _histories[i],
+          ),
+        )
+      );
     }
     print(_dynasties.length);
     return cards;
