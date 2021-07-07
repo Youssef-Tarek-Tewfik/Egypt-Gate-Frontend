@@ -22,6 +22,7 @@ class KingScreen extends StatelessWidget {
     final double h = MediaQuery.of(context).size.height;
 
     return Material(
+      color: Colors.black,
       child: Container(
         margin: EdgeInsets.all(3.5),
         decoration: BoxDecoration(

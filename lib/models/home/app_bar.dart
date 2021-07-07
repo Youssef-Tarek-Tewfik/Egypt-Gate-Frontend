@@ -20,12 +20,13 @@ AppBar customAppBar({double h, double w}) {
       "Egypt Gate",
       style: TextStyle(
         color: CustomColors.primary,
+        fontFamily: "Cinzel",
         fontSize: w * 0.07,
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.bold,
       ),
     ),
-    actions: [
-      Image.asset("assets/logo.png", width: w * 0.15),
-    ],
+    // actions: [
+    //   Image.asset("assets/logo.png", width: w * 0.15),
+    // ],
   );
 }

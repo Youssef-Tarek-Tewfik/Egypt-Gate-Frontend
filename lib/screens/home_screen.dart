@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 
   final CameraDescription cameraDescription;
   final bool connected;
-
+  String language;
   HomeScreen(this.cameraDescription, this.connected);
 
   @override
@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    
+    widget.language = "English";
     _controller = CameraController(
       widget.cameraDescription,
       ResolutionPreset.medium,
@@ -40,7 +40,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _controller.dispose();
     super.dispose();
   }
-
+  void changeLanguage(String lang){
+    setState(() {
+      widget.language = lang;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -53,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           h: h,
           w: w,
         ),
-        drawer: customDrawer(),
+        drawer: customDrawer(context,widget.language,changeLanguage),
         body: cameraBuilder(
           initializer: _initializeControllerFuture,
           controller: _controller,

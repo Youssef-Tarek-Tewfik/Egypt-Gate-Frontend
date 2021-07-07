@@ -5,12 +5,10 @@ import 'package:egypt_gate/screens/scanning_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
-
 // Function called to capture a picture with the camera
 // TO DO: Function should delegate the image to another api caller function
-void captureHandler(
-  Future<void> initializer, CameraController controller , BuildContext context) async {
-    
+void captureHandler(Future<void> initializer, CameraController controller,
+    BuildContext context) async {
   //https://www.youtube.com/watch?v=nLlVANBmFJM
   //Hena Loading Screen le7ad ma el await te5las
   await initializer;
@@ -20,23 +18,23 @@ void captureHandler(
     File(temp2).delete();
   }
   await controller.takePicture().whenComplete(() => {
-  Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ScanningScreen(imageToScanPath: temp2),
-      ),
-    )
-  });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ScanningScreen(imageToScanPath: temp2),
+          ),
+        )
+      });
 }
 
 // Function that builds the camera preview and button widgets when the initializer is done
 // Also handles what to be displayed while the initializer isn't finished
-FutureBuilder<void> cameraBuilder({
-  final Future<void> initializer,
-  final CameraController controller,
-  final double w,
-  final double h,
-  final bool buttonEnabled = true}) {
+FutureBuilder<void> cameraBuilder(
+    {final Future<void> initializer,
+    final CameraController controller,
+    final double w,
+    final double h,
+    final bool buttonEnabled = true}) {
   return FutureBuilder<void>(
       future: initializer,
       builder: (context, snapshot) {
@@ -49,12 +47,10 @@ FutureBuilder<void> cameraBuilder({
                 alignment: Alignment.bottomCenter,
                 children: [
                   Container(
-                    width: w,
-                    height: h,
-                    child: CameraPreview(controller)
-                  ),
+                      width: w, height: h, child: CameraPreview(controller)),
                   Container(
                     height: 0.15 * h,
+                    margin: EdgeInsets.only(bottom: 6),
                     width: 0.255 * w,
                     decoration: ShapeDecoration(
                       color: Colors.transparent,
@@ -63,12 +59,14 @@ FutureBuilder<void> cameraBuilder({
                         color: buttonEnabled
                             ? CustomColors.primary
                             : Colors.grey.shade500,
-                        width: 0.02 * w,
+                        width: 0.01 * w,
+                        
                       )),
                     ),
                     child: RaisedButton(
                       onPressed: buttonEnabled
-                          ? () => captureHandler(initializer, controller, context)
+                          ? () =>
+                              captureHandler(initializer, controller, context)
                           : null,
                       color: Colors.transparent,
                       shape: CircleBorder(),
@@ -88,13 +86,13 @@ FutureBuilder<void> cameraBuilder({
                     ),
                   ),
                 ],
-              )
-          );
+              ));
         } else {
           // initialization not done yet (Still loading)
-          return Center(child: CircularProgressIndicator(
-            color: CustomColors.primary
-          ));
+          return Center(
+              child: CircularProgressIndicator(
+                // color: CustomColors.primary
+                ));
         }
       });
 }

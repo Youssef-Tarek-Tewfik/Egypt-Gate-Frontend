@@ -62,6 +62,8 @@ class _OfflineScreenState extends State<OfflineScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:Colors.black, 
+      
       body: Container(
         child: Center(
           child: ListView(
