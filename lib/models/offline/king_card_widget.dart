@@ -80,14 +80,14 @@ class _KingCardState extends State<KingCard> {
                       "assets/images/${widget.kingName}.jpg",
                       fit: BoxFit.fitHeight,
                       height: 200,
-                      width: 165,
+                      width: w * 0.4,
                     ),
                 ),
               ),
               Container(
-                width: w * 0.54,
+                width: w * 0.52,
                 height: h * 0.27,
-                // color: Colors.black,
+                //color: Colors.black,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -98,7 +98,7 @@ class _KingCardState extends State<KingCard> {
                         textDirection: TextDirection.ltr,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 25,
+                            fontSize: (widget.kingName.length>10)? w*0.05 : w*0.065,
                             // decoration: InputDecoration(border: InputBorder.none),
                             color: Color.fromRGBO(56, 37, 14, 20),
                             fontFamily: 'Cinzel'),
@@ -108,7 +108,7 @@ class _KingCardState extends State<KingCard> {
                       widget.reignPeriod,
                       textDirection: TextDirection.ltr,
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 0.04 * w,
                           color: Color.fromRGBO(56, 37, 14, 20),
                           fontFamily: 'WeissInitialen'),
                     ),
@@ -117,7 +117,7 @@ class _KingCardState extends State<KingCard> {
                       widget.dynasty,
                       textDirection: TextDirection.ltr,
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 0.037 * w,
                           color: Color.fromRGBO(56, 37, 14, 20),
                           fontFamily: 'WeissInitialen'),
                     ),

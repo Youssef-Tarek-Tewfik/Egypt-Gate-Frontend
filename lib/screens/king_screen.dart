@@ -54,7 +54,7 @@ class KingScreen extends StatelessWidget {
                             "assets/images/$kingName.jpg",
                             fit: BoxFit.fitHeight,
                             height: 200,
-                            width: 165,
+                            width: 0.42 * w,
                           ),
                       ),
                     ),
@@ -71,7 +71,7 @@ class KingScreen extends StatelessWidget {
                               textDirection: TextDirection.ltr,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 25,
+                                  fontSize: (kingName.length>10)? w*0.05 : w*0.065,
                                   // decoration: InputDecoration(border: InputBorder.none),
                                   color: Color.fromRGBO(56, 37, 14, 20),
                                   fontFamily: 'Cinzel'),
@@ -81,7 +81,7 @@ class KingScreen extends StatelessWidget {
                             reignPeriod,
                             textDirection: TextDirection.ltr,
                             style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 15,
                                 color: Color.fromRGBO(56, 37, 14, 20),
                                 fontFamily: 'WeissInitialen'),
                           ),
@@ -89,7 +89,7 @@ class KingScreen extends StatelessWidget {
                             dynasty,
                             textDirection: TextDirection.ltr,
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 10,
                                 color: Color.fromRGBO(56, 37, 14, 20),
                                 fontFamily: 'WeissInitialen'),
                           ),

@@ -77,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
         w: w,
         h: h,
         buttonEnabled: widget.connected,
+        language : language,
       ),
       // body: FutureBuilder<void>(
       //   future: _initializeControllerFuture,
