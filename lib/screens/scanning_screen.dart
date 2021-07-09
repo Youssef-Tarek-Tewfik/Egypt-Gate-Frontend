@@ -20,6 +20,15 @@ class ScanningScreen extends StatefulWidget {
 }
 
 class _ScanningScreenState extends State<ScanningScreen> {
+  
+  @override
+  void initState() {
+    super.initState();
+    widget.image = new File(widget.imageToScanPath);
+  }
+  
+
+
   void goToAR(BuildContext context, kingData) {
     Navigator.push(
         context,
@@ -30,7 +39,6 @@ class _ScanningScreenState extends State<ScanningScreen> {
   }
 
   Widget build(BuildContext context) {
-    widget.image = new File(widget.imageToScanPath);
     return new FutureBuilder(
       future: scanImage(widget.image),
       builder: (context, AsyncSnapshot<String> text) {
@@ -94,4 +102,5 @@ class _ScanningScreenState extends State<ScanningScreen> {
       },
     );
   }
+
 }
