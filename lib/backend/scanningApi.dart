@@ -15,7 +15,7 @@ import 'package:path/path.dart';
 
 
 Future<String> scanImage(File imageFile) async {
-  String apiLink = 'http://ee38c3026c6b.ngrok.io/';
+  String apiLink = 'http://787831e8073e.ngrok.io/';
   var request = http.MultipartRequest(
     'POST',
     Uri.parse(apiLink + 'Recognize'),

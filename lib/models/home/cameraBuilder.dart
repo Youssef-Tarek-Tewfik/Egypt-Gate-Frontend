@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 // Function called to capture a picture with the camera
 // TO DO: Function should delegate the image to another api caller function
-void captureHandler(Future<void> initializer, CameraController controller, BuildContext context, String language) async {
+void captureHandler(Future<void> initializer, CameraController controller, BuildContext context, String language, final Function refreshCamera) async {
   //https://www.youtube.com/watch?v=nLlVANBmFJM
   //Hena Loading Screen le7ad ma el await te5las
   await initializer;
@@ -18,6 +18,7 @@ void captureHandler(Future<void> initializer, CameraController controller, Build
   //   File(imgPath).delete();
   // }
 
+  controller.setFlashMode(FlashMode.off);
   final XFile xfile = await controller.takePicture();
   // xfile.
   // Navigator.push(
@@ -29,7 +30,9 @@ void captureHandler(Future<void> initializer, CameraController controller, Build
   Navigator.push(
     context,
     customNavigation(ScanningScreen(imageToScanPath: xfile.path,language:language))
-  );
+  ).then((value) {
+    refreshCamera();
+  });
 
 }
 
@@ -42,6 +45,7 @@ FutureBuilder<void> cameraBuilder({
   final double h,
   final bool buttonEnabled = true,
   final String language,
+  final Function refreshCamera,
   }) {
 
   return FutureBuilder<void>(
@@ -75,7 +79,7 @@ FutureBuilder<void> cameraBuilder({
                     ),
                   ),
                   child: RaisedButton(
-                    onPressed: buttonEnabled? () => captureHandler(initializer, controller, context,language): null,
+                    onPressed: buttonEnabled? () => captureHandler(initializer, controller, context, language, refreshCamera): null,
                     color: Colors.transparent,
                     shape: CircleBorder(),
                     child: buttonEnabled? null: Center(

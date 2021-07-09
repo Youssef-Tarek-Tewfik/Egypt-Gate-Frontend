@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _controller = CameraController(
       widget.cameraDescription,
       ResolutionPreset.medium,
+      enableAudio: false,
     );
   _initializeControllerFuture = _controller.initialize();
   }
@@ -48,6 +49,17 @@ class _HomeScreenState extends State<HomeScreen> {
   void changeLanguage(String lang) {
     setState(() {
       language = lang;
+    });
+  }
+
+  void initCamera() {
+    setState(() {
+      // _controller = CameraController(
+      // widget.cameraDescription,
+      // ResolutionPreset.medium,
+      // enableAudio: false,
+      // );
+      _initializeControllerFuture = _controller.initialize();
     });
   }
 
@@ -77,7 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
         w: w,
         h: h,
         buttonEnabled: widget.connected,
-        language : language,
+        language: language,
+        refreshCamera: initCamera,
       ),
       // body: FutureBuilder<void>(
       //   future: _initializeControllerFuture,
