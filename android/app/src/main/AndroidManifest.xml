@@ -9,7 +9,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="Egypt Gate"
-        android:icon="@mipmap/app_icon">
+        android:icon="@mipmap/eg_app_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
