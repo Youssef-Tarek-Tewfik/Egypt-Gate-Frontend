@@ -1,4 +1,4 @@
-import 'package:egypt_gate/common/custom_navigation.dart';
+import 'package:egypt_gate/common/navigation.dart';
 import 'package:egypt_gate/screens/king_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -58,7 +58,7 @@ class _KingCardState extends State<KingCard> {
     return GestureDetector(
       onTap: () => tapHandler(context),
       child: Material(
-        color: Colors.black,
+        color: Colors.white,
         child: Container(
           margin: EdgeInsets.all(3.5),
           decoration: BoxDecoration(

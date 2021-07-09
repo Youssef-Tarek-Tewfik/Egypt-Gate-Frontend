@@ -6,7 +6,7 @@ class UnrecognizedScreen extends StatelessWidget {
   const UnrecognizedScreen ({Key key}) : super(key: key);
 
   void tapHandler(BuildContext context) {
-
+    Navigator.of(context).pop();
   }
 
   @override
@@ -16,10 +16,11 @@ class UnrecognizedScreen extends StatelessWidget {
     final double h = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         width: w,
         decoration: BoxDecoration(
-          border: Border.all(color: CustomColors.fourth, width: 1.4),
+          border: Border.all(color: CustomColors.third, width: 1.4),
           borderRadius: BorderRadius.circular(15.0),
           image: DecorationImage(
             image: AssetImage("assets/images/pattern6.jpg"),
@@ -33,7 +34,7 @@ class UnrecognizedScreen extends StatelessWidget {
               child: Text(
                 "Unrecognized Statue",
                 style: TextStyle(
-                  color: CustomColors.fourth,
+                  color: CustomColors.third,
                   fontFamily: "Lato Light",
                   fontWeight: FontWeight.w900,
                   fontSize: w * 0.1,
@@ -48,7 +49,7 @@ class UnrecognizedScreen extends StatelessWidget {
                   "Sorry, we couldn't recognize this statue. Make sure to focus your camera on the statue's face while keeping your phone vertical!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: CustomColors.fourth,
+                    color: CustomColors.third,
                     fontFamily: "Lato Light",
                     fontWeight: FontWeight.w500,
                     fontSize: w * 0.06,
@@ -64,7 +65,7 @@ class UnrecognizedScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(CustomColors.fourth),
+                  backgroundColor: MaterialStateProperty.all(CustomColors.third),
                   shape: MaterialStateProperty.all(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),

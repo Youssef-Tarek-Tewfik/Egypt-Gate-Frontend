@@ -1,7 +1,6 @@
 import 'dart:developer';
-
 import 'dart:io';
-
+import 'package:egypt_gate/common/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:path/path.dart';
@@ -11,7 +10,7 @@ class ScanningScreen extends StatefulWidget {
   String imageToScanPath;
   File image;
   String kingName;
-  ScanningScreen({Key key, @required this.imageToScanPath}) : super(key: key);
+  ScanningScreen({Key key, this.imageToScanPath}) : super(key: key);
 
   @override
   _ScanningScreenState createState() => _ScanningScreenState();
@@ -56,6 +55,7 @@ class _ScanningScreenState extends State<ScanningScreen> {
             textScaleFactor: 1,
           ); // image is ready
         } else {
+          return LoadingScreen();
           return new Scaffold(
               backgroundColor: Colors.yellowAccent[700],
               body: Center(

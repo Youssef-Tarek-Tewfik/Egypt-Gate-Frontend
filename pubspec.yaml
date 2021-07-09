@@ -28,7 +28,7 @@ dependencies:
   path:
   connectivity: ^0.4.2
   http: ^0.12.2
-  image_picker: ^0.8.1+3
+  image_picker: 0.6.7+10
   flutter_spinkit: "^4.1.2"
 
 
@@ -58,9 +58,21 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
+    - assets/images/
     - assets/images/Akhenaten.jpg
+    - assets/images/crown.png
+    - assets/images/crown2.png
+    - assets/images/imageIcon.png
     - assets/images/Arabic.jpg
     - assets/images/English.jpg
+    - assets/images/Hatshepsut.jpg
+    - assets/images/Amenhotep III.jpg
+    - assets/images/Ahmose-Meritamun.jpg
+    - assets/images/Thutmose IV.jpg
+    - assets/descriptions/Hatshepsut.txt
+    - assets/descriptions/Amenhotep III.txt
+    - assets/descriptions/Thutmose IV.txt
+    - assets/descriptions/Ahmose-Meritamun.txt
     - assets/images/Spanish.jpg
     - assets/images/French.jpg
     - assets/images/German.jpg

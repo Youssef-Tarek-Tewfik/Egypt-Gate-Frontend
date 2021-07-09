@@ -1,8 +1,8 @@
 import 'package:egypt_gate/common/theme.dart';
 import 'package:flutter/material.dart';
 
-class CustomLoadingScreen extends StatelessWidget {
-  const CustomLoadingScreen({Key key}) : super(key: key);
+class LoadingScreen extends StatelessWidget {
+  const LoadingScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,18 +11,19 @@ class CustomLoadingScreen extends StatelessWidget {
     final double h = MediaQuery.of(context).size.height;
 
     return Container(
+      height: h,
       width: w,
       decoration: BoxDecoration(
-        border: Border.all(color: CustomColors.fourth, width: 1.4),
+        border: Border.all(color: CustomColors.third, width: 1.4),
         borderRadius: BorderRadius.circular(15.0),
         image: DecorationImage(
           image: AssetImage("assets/images/pattern6.jpg"),
-          fit: BoxFit.cover),
+          fit: BoxFit.fitHeight
+        ),
       ),
       child: Center(
-        child: CircularProgressIndicator(
-          color: CustomColors.fourth,
-          strokeWidth: 4,
+        child: RefreshProgressIndicator(
+          backgroundColor: Colors.black,
         )
       ),
     );

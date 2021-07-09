@@ -1,5 +1,5 @@
 import 'package:egypt_gate/common/theme.dart';
-import 'package:egypt_gate/models/home/languageTiles.dart';
+import 'package:egypt_gate/models/home/language_tile.dart';
 import 'package:flutter/material.dart';
 
 SimpleDialog languageDialog(BuildContext context, Function changeLanguage) {

@@ -3,4 +3,7 @@ Nefertiti
 Akhenaten
 Ramesses II
 Tutankhamun
+Hatshepsut
+Thutmose IV
+Amenhotep III
 ENDENDEND
