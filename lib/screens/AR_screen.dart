@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_unity/flutter_unity.dart';
 
-
-
 class ArScreen extends StatefulWidget {
   Map<String, String> kingData;
   String language;
-  ArScreen({Key key, this.kingData,this.language}) : super(key: key);
+  ArScreen({Key key, this.kingData, this.language}) : super(key: key);
   @override
   _ArScreenState createState() => _ArScreenState();
 }
 
-
-
 class _ArScreenState extends State<ArScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+    if (unityViewController != null) {
+      print("SSSSSS");
+      sendToUnity();
+    }
+  }
+
   UnityViewController unityViewController;
   void onCreated(UnityViewController controller) {
     unityViewController = controller;
@@ -25,16 +31,12 @@ class _ArScreenState extends State<ArScreen> {
   }
 
   void sendToUnity() {
-    unityViewController.send(
-        'Canvas', 'SetRole', widget.kingData['role']);
-    unityViewController.send(
-        'Canvas', 'SetName', widget.kingData['name']);
-    unityViewController.send(
-        'Canvas', 'SetFamily', widget.kingData['family']);
+    unityViewController.send('Canvas', 'SetRole', widget.kingData['role']);
+    unityViewController.send('Canvas', 'SetName', widget.kingData['name']);
+    unityViewController.send('Canvas', 'SetFamily', widget.kingData['family']);
     unityViewController.send(
         'Canvas', 'SetDesc', widget.kingData['short-description']);
-    unityViewController.send(
-        'Canvas', 'SetLanguage', widget.language);
+    unityViewController.send('Canvas', 'SetLanguage', widget.language);
   }
 
   @override
