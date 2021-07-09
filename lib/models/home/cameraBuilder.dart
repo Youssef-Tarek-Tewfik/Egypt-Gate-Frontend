@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:egypt_gate/common/theme.dart';
+import 'package:egypt_gate/screens/AR_screen.dart';
 import 'package:egypt_gate/screens/scanning_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -11,7 +12,22 @@ import 'package:path_provider/path_provider.dart';
 
 // Function called to capture a picture with the camera
 // TO DO: Function should delegate the image to another api caller function
+void goToAR(context)
+{
+  Map<String, String> kingData = {
+            'name': "",
+            'family': "",
+            'role': "",
+            'short-description': ""
+          };
+          Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ArScreen(kingData: kingData),
+        ));
+}
 void captureHandler(
+  
   Future<void> initializer, CameraController controller , BuildContext context) async {
     
   //https://www.youtube.com/watch?v=nLlVANBmFJM
@@ -67,7 +83,10 @@ FutureBuilder<void> cameraBuilder(
                     ),
                     child: RaisedButton(
                       onPressed: buttonEnabled
-                          ? () => captureHandler(initializer, controller, context)
+                          //Running Whole Scenario
+                          ? () => captureHandler(initializer, controller, context) 
+                          //Running AR Only
+                          //? ()=>goToAR(context)
                           : null,
                       color: Colors.transparent,
                       shape: CircleBorder(),

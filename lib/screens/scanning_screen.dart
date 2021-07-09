@@ -30,6 +30,7 @@ class _ScanningScreenState extends State<ScanningScreen> {
       future: scanImage(widget.image),
       builder: (context, AsyncSnapshot<String> text) {
         if (text.hasData) {
+          
           print("AAAAAAAAAA  " + text.data);
           String organizedText = "";
           Map<String, String> kingData = {
@@ -40,7 +41,7 @@ class _ScanningScreenState extends State<ScanningScreen> {
           };
           for (String text in text.data.split('!')) {
             if (text.isNotEmpty) {
-              if (text.split('^')[0] == "short-description") {
+              /*if (text.split('^')[0] == "short-description") {
                 String temp = "";
 
                 for (String line in text.split('^')[1].split('.')) {
@@ -49,14 +50,17 @@ class _ScanningScreenState extends State<ScanningScreen> {
                 kingData[text.split('^')[0]] = temp;
               } else {
                 print("SSSSSS" + text);
+              }*/
                 kingData[text.split('^')[0]] = text.split('^')[1];
-              }
             }
           }
-          organizedText += ('\n\n\n\n\n\n\n\n\n\n');
+          //goToAR(kingData);
+          organizedText += ('\n\n\n\n');
           organizedText += (("Name : ") + kingData['name'] + '\n\n');
           organizedText += (("Family : ") + kingData['family'] + '\n\n');
           organizedText += (("Role : ") + kingData['role'] + '\n\n');
+          organizedText += (("Short-Desc : ") + kingData['short-description'] + '\n\n');
+          
           organizedText += ('\n\n');
           organizedText += "Press the below button to go to the AR mode ";
           /*organizedText +=
