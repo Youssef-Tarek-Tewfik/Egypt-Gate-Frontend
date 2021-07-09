@@ -40,7 +40,7 @@ class _ScanningScreenState extends State<ScanningScreen> {
 
   Widget build(BuildContext context) {
     return new FutureBuilder(
-      future: scanImage(widget.image),
+      future: scanImage(widget.image,widget.language),
       builder: (context, AsyncSnapshot<String> text) {
         if (text.hasData) {
           String organizedText = "";

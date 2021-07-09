@@ -12,15 +12,13 @@ import 'package:http_parser/http_parser.dart';
 import 'package:async/async.dart';
 import 'package:path/path.dart';
 
-
-
-Future<String> scanImage(File imageFile) async {
-  String apiLink = 'http://d61e740df40f.ngrok.io/';
+Future<String> scanImage(File imageFile,String language) async {
+  String apiLink = 'http://b8455e329d28.ngrok.io/';
   var request = http.MultipartRequest(
     'POST',
     Uri.parse(apiLink + 'Recognize'),
   );
-  Map<String, String> headers = {"Content-type": "multipart/form-data"};
+  Map<String, String> headers = {"Content-type": "multipart/form-data","Lang":language};
   request.files.add(
     http.MultipartFile(
       'ImageFile',
@@ -40,7 +38,7 @@ Future<String> scanImage(File imageFile) async {
   return response.body.split('#')[0];
   //print(response.body.length);
   // setState(() {
-  //  image = File(response.body); 
+  //  image = File(response.body);
   // });
   //var stream = streamedResponse.stream;
   //var tempTany = await stream.toBytes();
