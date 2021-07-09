@@ -1,22 +1,24 @@
+import 'dart:developer';
 import 'dart:io';
-
+import 'package:egypt_gate/common/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:egypt_gate/screens/AR_screen.dart';
+import 'package:path/path.dart';
 import '../backend/scanningApi.dart';
 
 class ScanningScreen extends StatefulWidget {
   String imageToScanPath;
   File image;
   String kingName;
-  ScanningScreen({Key key, @required this.imageToScanPath}) : super(key: key);
+  ScanningScreen({Key key, this.imageToScanPath}) : super(key: key);
 
   @override
   _ScanningScreenState createState() => _ScanningScreenState();
 }
 
 class _ScanningScreenState extends State<ScanningScreen> {
-  void goToAR(kingData) {
+  void goToAR(BuildContext context,kingData) {
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -71,7 +73,7 @@ class _ScanningScreenState extends State<ScanningScreen> {
               textScaleFactor: 2,
             ),
             floatingActionButton: FloatingActionButton(
-              onPressed: () => goToAR(kingData),
+              onPressed: () => goToAR(context,kingData),
               child: Icon(Icons.arrow_right),
             ),
           ); // image is ready

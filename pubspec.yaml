@@ -28,9 +28,10 @@ dependencies:
   path:
   connectivity: ^0.4.2
   http: ^0.12.2
-  image_picker: ^0.6.7+22
+  image_picker: 0.6.7+10
   flutter_spinkit: "^4.1.2"
   flutter_unity:
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -58,7 +59,48 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
-
+    - assets/images/
+    - assets/images/Akhenaten.jpg
+    - assets/images/crown.png
+    - assets/images/crown2.png
+    - assets/images/imageIcon.png
+    - assets/images/Arabic.jpg
+    - assets/images/English.jpg
+    - assets/images/Hatshepsut.jpg
+    - assets/images/Amenhotep III.jpg
+    - assets/images/Ahmose-Meritamun.jpg
+    - assets/images/Thutmose IV.jpg
+    - assets/descriptions/Hatshepsut.txt
+    - assets/descriptions/Amenhotep III.txt
+    - assets/descriptions/Thutmose IV.txt
+    - assets/descriptions/Ahmose-Meritamun.txt
+    - assets/images/Spanish.jpg
+    - assets/images/French.jpg
+    - assets/images/German.jpg
+    - assets/images/Russian.jpg
+    - assets/images/Nefertiti.jpg
+    - assets/images/Ramesses II.jpg
+    - assets/images/Thutmose III.jpg
+    - assets/images/Tutankhamun.jpg
+    - assets/descriptions/Akhenaten.txt
+    - assets/descriptions/Nefertiti.txt
+    - assets/descriptions/Ramesses II.txt
+    - assets/descriptions/Thutmose III.txt
+    - assets/descriptions/Tutankhamun.txt
+    - assets/descriptions/names.txt
+    - assets/images/pattern6.jpg
+  fonts:
+    - family: Cinzel
+      fonts:
+        - asset: assets/fonts/CinzelDecorative-Regular.otf
+        - asset: assets/fonts/CinzelDecorative-Bold.otf
+          weight: 700
+    - family: WeissInitialen
+      fonts:
+        - asset: assets/fonts/WeissInitialen.ttf
+    - family: Lato Light
+      fonts:
+        - asset: assets/fonts/lato.light.ttf
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
