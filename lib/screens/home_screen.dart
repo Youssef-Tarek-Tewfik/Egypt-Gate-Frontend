@@ -13,7 +13,6 @@ import 'package:image_picker/image_picker.dart';
 // Home Screen with the Camera view, called from the Splashscreen
 // Receives the CameraDescription instance from the Splashscreen
 class HomeScreen extends StatefulWidget {
-
   final CameraDescription cameraDescription;
   final bool connected;
   HomeScreen(this.cameraDescription, this.connected);
@@ -23,7 +22,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   CameraController _controller;
   Future<void> _initializeControllerFuture;
   String language;
@@ -37,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ResolutionPreset.medium,
       enableAudio: false,
     );
-  _initializeControllerFuture = _controller.initialize();
+    _initializeControllerFuture = _controller.initialize();
   }
 
   @override
@@ -50,6 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       language = lang;
     });
+  }
+
+  FutureOr initCameraFutureOr(dynamic value) {
+    initCamera();
   }
 
   void initCamera() {
@@ -65,7 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void getGalleryImage() async {
     final image = await ImagePicker().getImage(source: ImageSource.gallery);
-    Navigator.of(context).push(customNavigation(ScanningScreen(imageToScanPath: image.path)));
+    Navigator.of(context)
+        .push(customNavigation(
+            ScanningScreen(imageToScanPath: image.path, language: language)))
+        .then(initCameraFutureOr);
   }
 
   @override
@@ -75,7 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: CustomColors.secondary,
-      appBar: customAppBar(h: h, w: w,),
+      appBar: customAppBar(
+        h: h,
+        w: w,
+      ),
       drawer: customDrawer(
         context: context,
         language: language,
@@ -104,7 +112,6 @@ class _HomeScreenState extends State<HomeScreen> {
       //     }
       //   },
       // ),
-
     );
   }
 }
