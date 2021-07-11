@@ -13,7 +13,7 @@ import 'package:async/async.dart';
 import 'package:path/path.dart';
 
 Future<String> scanImage(File imageFile,String language) async {
-  String apiLink = 'http://fbea48e2fb57.ngrok.io/';
+  String apiLink = 'http://76a8b94ba4e6.ngrok.io/';
   var request = http.MultipartRequest(
     'POST',
     Uri.parse(apiLink + 'Recognize'),
@@ -31,23 +31,8 @@ Future<String> scanImage(File imageFile,String language) async {
 
   request.headers.addAll(headers);
   print("request: " + request.toString());
-  // send
   var streamedResponse = await request.send();
   var response = await http.Response.fromStream(streamedResponse);
 
   return response.body.split('#')[0];
-  //print(response.body.length);
-  // setState(() {
-  //  image = File(response.body);
-  // });
-  //var stream = streamedResponse.stream;
-  //var tempTany = await stream.toBytes();
-  //final respStr = await response.stream.bytesToString();
-  //print("STATUS CODE :${response.statusCode}");
-  //dynamic decodedResponse = jsonDecode(respStr);
-  //print(decodedResponse);
-  // listen for response
-  //response.stream.transform(utf8.decoder).listen((value) {
-  //print(value);
-  //});
 }

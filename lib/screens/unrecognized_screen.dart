@@ -1,10 +1,15 @@
 import 'package:egypt_gate/common/theme.dart';
 import 'package:flutter/material.dart';
 
-class UnrecognizedScreen extends StatelessWidget {
+class UnrecognizedScreen extends StatefulWidget {
 
   const UnrecognizedScreen ({Key key}) : super(key: key);
 
+  @override
+  _UnrecognizedScreenState createState() => _UnrecognizedScreenState();
+}
+
+class _UnrecognizedScreenState extends State<UnrecognizedScreen> {
   void tapHandler(BuildContext context) {
     Navigator.of(context).pop();
   }
@@ -63,7 +68,7 @@ class UnrecognizedScreen extends StatelessWidget {
               width: 0.6 * w,
               height: 0.15 * h,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => tapHandler(context),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(CustomColors.third),
                   shape: MaterialStateProperty.all(
