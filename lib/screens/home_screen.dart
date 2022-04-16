@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void getGalleryImage() async {
-    final image = await ImagePicker().getImage(source: ImageSource.gallery);
+    final image = await ImagePicker().getImage(source: ImageSource.gallery,maxWidth: 500);
     Navigator.of(context)
         .push(customNavigation(
             ScanningScreen(imageToScanPath: image.path, language: language)))
